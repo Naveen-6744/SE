@@ -1,0 +1,85 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Attendance Tracking</title>
+  <style>
+    /* Global styles */
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Homepage styles */
+    .container {
+      border: 1px solid #000;
+      padding: 20px;
+      background-color: #CFECEC;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container select {
+      margin-bottom: 10px;
+    }
+
+    /* Linked page styles */
+    .linked-page {
+      border: 1.5px solid #000;
+      padding: 20px;
+      background-color: #CCFFFF;
+    }
+
+    .linked-page input[type="text"],
+    .linked-page input[type="password"] {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    .linked-page button {
+      padding: 10px 20px;
+      background-color: #16E2F5;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Attendance Tracking</h1>
+    <select id="user-type">
+      <option value="">Select User Type</option>
+      <option value="admin">Admin</option>
+      <option value="faculty">Faculty</option>
+      <option value="student">Student</option>
+    </select>
+  </div>
+
+  <script>
+    const userTypeSelect = document.getElementById('user-type');
+
+    function redirectToLogin() {
+      const selectedUserType = userTypeSelect.value;
+
+      if (selectedUserType !== '') {
+        window.location.href = 'login.html?type=' + selectedUserType;
+      }
+    }
+
+    userTypeSelect.addEventListener('change', redirectToLogin);
+  </script>
+</body>
+</html>

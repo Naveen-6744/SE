@@ -1,0 +1,33 @@
+body {
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+label {
+  font-weight: bold;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 20px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(to right, #FF6347, #FFD700);
+  border-radius: 10px;
+  width: 0%;
+  transition: width 0.5s ease-in-out;
+}

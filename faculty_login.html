@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Faculty Portal</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #CCFFFF; /* Set the background color to ccffff */
+    margin: 0;
+    padding: 0;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px 5px;
+      cursor: pointer;
+    }
+    
+    .container {
+      margin: 20px;
+    }
+    
+    .student-form {
+      display: none;
+    }
+    
+    .attendance-form {
+      display: none;
+    }
+    
+    #student-details {
+      margin-top: 20px;
+    }
+    
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Faculty Portal</h1>
+    
+    <button class="button" onclick="showAttendanceForm()">Mark Attendance</button>
+    <button class="button" onclick="showStudentForm()">Add/Remove Student</button>
+    
+    <div class="attendance-form">
+      <h2>Mark Attendance</h2>
+      <p>Select a date:</p>
+      <input type="date" id="attendance-date">
+      <br><br>
+      <p>Mark attendance:</p>
+      <table id="student-details">
+        <tr>
+          <th>Name</th>
+          <th>Present</th>
+        </tr>
+        <tr>
+          <td>Student 1</td>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td>Student 2</td>
+          <td><input type="checkbox"></td>
+        </tr>
+        <!-- Add more students here as needed -->
+      </table>
+      <br>
+      <button class="button" onclick="submitAttendance()">Submit</button>
+    </div>
+    
+    <div class="student-form">
+      <h2>Add/Remove Student</h2>
+      <p>Enter student details:</p>
+      <input type="text" placeholder="Student Name:" id="student-name">
+      <input type="text/number" placeholder="student Roll No." id="student-roll no."
+      <br><br>
+      <button class="button" onclick="addStudent()">Add</button>
+      <button class="button" onclick="removeStudent()">Remove</button>
+    </div>
+  </div>
+  
+  <script>
+    function showAttendanceForm() {
+      document.getElementsByClassName("attendance-form")[0].style.display = "block";
+      document.getElementsByClassName("student-form")[0].style.display = "none";
+    }
+    
+    function showStudentForm() {
+      document.getElementsByClassName("attendance-form")[0].style.display = "none";
+      document.getElementsByClassName("student-form")[0].style.display = "block";
+    }
+    
+    function submitAttendance() {
+      var date = document.getElementById("attendance-date").value;
+      var table = document.getElementById("student-details");
+      var rows = table.rows;
+      
+      var attendance = {};
+      for (var i = 1; i < rows.length; i++) {
+        var studentName = rows[i].cells[0].innerText;
+        var isPresent = rows[i].cells[1].getElementsByTagName("input")[0].checked;
+        attendance[studentName] = isPresent;
+      }
+      
+      // TODO: Send the attendance data to the server or perform desired actions
+      
+      alert("Attendance marked for " + date);
+    }
+    
+    function addStudent() {
+      var studentName = document.getElementById("student-name").value;
+      
+      // TODO: Add the student to the list or perform desired actions
+      
+      alert("Student " + studentName + " added");
+    }
+    
+    function removeStudent() {
+      var studentName = document.getElementById("student-name").value;
+      
+      // TODO: Remove the student from the list or perform desired actions
+      
+      alert("Student " + studentName + " removed");
+    }
+  </script>
+</body>
+</html>
+

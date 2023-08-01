@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Track Attendance</title>
+  <style>
+    body {
+      background-color: #CCFFFF;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: #333333;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-group {
+      margin-top: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333333;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cccccc;
+    }
+
+    .input-group button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .input-group button:hover {
+      background-color: #45a049;
+    }
+
+    .input-group button:active {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Track Student Attendance Record</h1>
+    <div class="input-group">
+      <label for="studentID">Student ID</label>
+      <input type="text" id="studentID" placeholder="Enter student ID">
+    </div>
+    <div class="input-group">
+      <button onclick="trackAttendance()">Track Attendance</button>
+    </div>
+  </div>
+
+  <script>
+    function trackAttendance() {
+      var studentID = document.getElementById("studentID").value;
+      // Call your backend API or database to track attendance
+      console.log("Tracking attendance for student:", studentID);
+
+      // Redirect to the percentage.html webpage
+      window.location.href = "attendance_percentage.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+    /* Global styles */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Login page styles */
+    .container {
+      border: 1px solid #000;
+      padding: 20px;
+      background-color: #CCFFFF;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container h1 {
+      margin-bottom: 20px;
+    }
+
+    .container form {
+      width: 300px;
+    }
+
+    .container input[type="text"],
+    .container input[type="password"] {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    .container button {
+      width: 100%;
+      padding: 10px 20px;
+      background-color: #16E2F5;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .container p {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .container a {
+      color: #16E2F5;
+      text-decoration: none;
+    }
+
+    .container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Login</h1>
+    <form onsubmit="return login()">
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button type="submit">Login</button>
+      <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </form>
+  </div>
+
+  <script>
+    function login() {
+      // Perform authentication logic here (e.g., validate username and password)
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // For demonstration purposes, let's assume successful login for all cases
+      const userType = new URLSearchParams(window.location.search).get('type');
+      localStorage.setItem('username', username);
+      localStorage.setItem('userType', userType);
+
+      // Redirect to the appropriate dashboard page
+      if (userType === 'admin') {
+        window.location.href = 'admin_login.html';
+      } else if (userType === 'faculty') {
+        window.location.href = 'faculty_login.html';
+      } else if (userType === 'student') {
+        window.location.href = 'student_login.html';
+      } else {
+        alert('Invalid user type.');
+      }
+
+      // Prevent form submission to avoid page refresh
+      return false;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Attendance</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #CCFFFF;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: rgb(34, 240, 223);
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px 5px;
+      cursor: pointer;
+    }
+    
+    .container {
+      margin: 20px;
+    }
+    
+    .attendance-form {
+      margin-top: 20px;
+    }
+    
+    #attendance-table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .present {
+      background-color: green;
+    }
+    
+    .absent {
+      background-color: red;
+    }
+    
+    .data-not-available {
+      background-color: #ccffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Student Attendance</h1>
+    
+    <button class="button" onclick="showAttendanceForm()">View Attendance</button>
+    
+    <div class="attendance-form" style="display:none">
+      <h2>View Attendance</h2>
+      <p>Select a date:</p>
+      <input type="date" id="attendance-date" onchange="viewAttendance()">
+      
+      <table id="attendance-table" style="display:none">
+        <tr>
+          <th>Date</th>
+          <th>Attendance Status</th>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <script>
+    function showAttendanceForm() {
+      document.getElementsByClassName("attendance-form")[0].style.display = "block";
+      document.getElementById("attendance-table").style.display = "none";
+    }
+    
+    function viewAttendance() {
+      var date = document.getElementById("attendance-date").value;
+      
+      // TODO: Retrieve attendance data for the student from the server or use sample data
+      
+      var attendanceData = {
+        "2023-07-01": "Data not available",
+        "2023-07-02": "Data not available",
+        "2023-07-03": "Data not available",
+        "2023-07-04": "Data not available",
+        "2023-07-05": "Data not available",
+        // Add more data for other dates here...
+      };
+      
+      var table = document.getElementById("attendance-table");
+      table.innerHTML = "";
+      
+      var row = table.insertRow();
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+
+      var selectedDate = new Date(date);
+      var day = String(selectedDate.getDate()).padStart(2, "0");
+      var month = String(selectedDate.getMonth() + 1).padStart(2, "0");
+      var year = selectedDate.getFullYear();
+
+      cell1.innerHTML = day + "/" + month + "/" + year;
+
+      var status = attendanceData[date] || "Data not available";
+      if (status === "present") {
+        cell2.innerHTML = "Present";
+        cell2.classList.add("present");
+      } else if (status === "absent") {
+        cell2.innerHTML = "Absent";
+        cell2.classList.add("absent");
+      } else {
+        cell2.innerHTML = "Data not available";
+        cell2.classList.add("data-not-available");
+      }
+      
+      document.getElementById("attendance-table").style.display = "block";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Dashboard</title>
+  <style>
+    /* Styles copied from styles.css */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #CCFFFF; /* Set the background color to #CCFFFF */
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    /* Container styles */
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Select styles */
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      background-color: #fff;
+      color: #333;
+    }
+
+    /* Result container styles */
+    #content-container {
+      margin-top: 30px;
+    }
+
+    .result-container {
+      padding: 20px;
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .result-container h2 {
+      color: #333;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    /* Additional styling for each result type */
+    #calendar {
+      color: #008000;
+    }
+
+    #attended_classes {
+      color: #007bff;
+    }
+
+    #attendance_percentage {
+      color: #ff5722;
+    }
+  </style>
+</head>
+<body>
+  <h1>Student portal</h1>
+
+  <label for="select-option">Select an option:</label>
+  <select id="select-option" onchange="navigateToPage()">
+    <option value="">Select</option>
+    <option value="calendar.html">Review Past Records</option>
+    <option value="attended_classes.html">Number of Attended Classes</option>
+    <option value="attendance_percentage.html">Attendance Percentage</option>
+  </select>
+
+  <div id="content-container"></div>
+
+  <script>
+    function navigateToPage() {
+      var selectOption = document.getElementById("select-option").value;
+      if (selectOption !== "") {
+        window.location.href = selectOption;
+      }
+    }
+  </script>
+</body>
+</html>
