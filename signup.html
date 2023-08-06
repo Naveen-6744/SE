@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,13 +11,6 @@
     }
 
     /* Add any other styles as needed */
-    .container {
-      max-width: 400px;
-      margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-    }
-    /* Your CSS styles go here */
     .container {
       max-width: 400px;
       margin: 0 auto;
@@ -48,10 +41,15 @@
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      box-sizing: border-box; /* Ensure padding and border fit within the width */
+      text-align: center; /* Center the text within the input field */
     }
 
     .placeholder-text {
-      display: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
       color: #999;
     }
 
@@ -152,7 +150,7 @@
       const inputField = document.getElementById(inputId);
       const placeholder = document.getElementById(inputId + '-placeholder');
       if (inputField.value.trim() === '') {
-        placeholder.style.display = 'inline';
+        placeholder.style.display = 'flex';
       } else {
         placeholder.style.display = 'none';
       }
