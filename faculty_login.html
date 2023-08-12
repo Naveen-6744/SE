@@ -61,7 +61,7 @@
     
     <button class="button" onclick="showAttendanceForm()">Mark Attendance</button>
     <button class="button" onclick="showStudentForm()">Manage Student</button>
-    <button class="button" onclick="showStudentForm()">Track Attendance</button>
+    <button onclick="location.href='track_attendance.html'">Track Student Attendance Record</button>
     
     <div class="attendance-form">
       <h2>Mark Attendance</h2>
@@ -110,10 +110,6 @@
       <button class="button" onclick="removeStudent()">Remove</button>
     </div>
 
-    <div class="track-attendance-form">
-      <button onclick="location.href='track_attendance.html'">Track Student Attendance Record</button>
-    </div>
-  
   <script>
     function showAttendanceForm() {
       document.getElementsByClassName("attendance-form")[0].style.display = "block";
