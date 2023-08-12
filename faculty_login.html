@@ -61,7 +61,7 @@
     
     <button class="button" onclick="showAttendanceForm()">Mark Attendance</button>
     <button class="button" onclick="showStudentForm()">Manage Student</button>
-    <button onclick="location.href='track_attendance.html'">Track Student Attendance Record</button>
+    <button class="button track-button" onclick="showTrackAttendancePage()">Track Attendance</button>
     
     <div class="attendance-form">
       <h2>Mark Attendance</h2>
@@ -153,6 +153,11 @@
       
       alert("Student " + studentName + " removed");
     }
+   function showTrackAttendancePage() {
+        // Redirect to the track_attendance.html page
+        window.location.href = "track_attendance.html";
+      }
+
   </script>
 </body>
 </html>
