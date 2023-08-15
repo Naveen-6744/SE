@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 <head>
   <title>Attendance Tracking System</title>
@@ -56,6 +56,12 @@
       cursor: pointer;
     }
 
+    /* Added styles for the logo */
+    .logo {
+      max-width: 200px; /* Adjust the maximum width of the logo */
+      margin-bottom: 20px; /* Add margin to separate the logo from other elements */
+    }
+
     /* Added styles for marquee container */
     .marquee-container {
       border: 1px solid #FFFFFF;
@@ -64,6 +70,7 @@
       width: 100%;
       text-align: center;
       overflow: hidden;
+      margin-top: 10px; /* Add margin to separate the marquee from the container */
     }
 
     /* Added styles for scrolling text animation */
@@ -85,6 +92,9 @@
 </head>
 <body>
   <div class="container">
+    <!-- Added logo image using the provided URL -->
+    <img src="https://t3.ftcdn.net/jpg/04/44/44/42/360_F_444444251_vEpYXoE2bZnQGFbsbdtn36VKTQHOWA2T.jpg" alt="Logo" class="logo">
+
     <h1>Attendance Tracking System</h1>
     <select id="user-type">
       <option value="">Select User Type</option>
@@ -92,6 +102,11 @@
       <option value="faculty">Faculty</option>
       <option value="student">Student</option>
     </select>
+    
+    <!-- Added marquee container with scrolling text -->
+    <div class="marquee-container">
+      <div class="marquee-text">Welcome to our Time TrackR Website</div>
+    </div>
   </div>
 
   <script>
@@ -107,10 +122,5 @@
 
     userTypeSelect.addEventListener('change', redirectToLogin);
   </script>
-
-  <!-- Added marquee container with scrolling text -->
-  <div class="marquee-container">
-    <div class="marquee-text">Welcome to our Time TrackR Website</div>
-  </div>
 </body>
 </html>
