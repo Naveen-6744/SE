@@ -55,6 +55,32 @@
       color: #fff;
       cursor: pointer;
     }
+
+    /* Added styles for marquee container */
+    .marquee-container {
+      border: 1px solid #FFFFFF;
+      background-color: #CFECEC;
+      padding: 10px;
+      width: 100%;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Added styles for scrolling text animation */
+    .marquee-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marqueeAnimation 15s linear infinite;
+    }
+
+    @keyframes marqueeAnimation {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
   </style>
 </head>
 <body>
@@ -81,5 +107,10 @@
 
     userTypeSelect.addEventListener('change', redirectToLogin);
   </script>
+
+  <!-- Added marquee container with scrolling text -->
+  <div class="marquee-container">
+    <div class="marquee-text">Welcome to our Time TrackR Website</div>
+  </div>
 </body>
 </html>
